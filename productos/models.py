@@ -9,7 +9,7 @@ class Categoria(models.Model):
 
     def __str__(self):                                                                               
         return self.titulo
-
+    
 class Subcategoria(models.Model):
     id = models.AutoField(primary_key=True)
     categoria = models.ForeignKey(Categoria,related_name='productos',on_delete=models.CASCADE)
