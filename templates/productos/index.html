@@ -6,7 +6,10 @@
 
     <ol>
         {% for prd in productos %}
-            <li>{{ prd.productos }}</li>
+            <li>
+                <a href="{% url 'detallado' slug=prd.slug %}">
+                    {{ prd.titulo }}</li>
+                </a>
             <ul>
                 <li>Categoria: {{prd.categoria}} </li>
                 <li>Subcategoria: {{prd.sub_categoria}} </li>

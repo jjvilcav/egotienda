@@ -18,3 +18,11 @@ class VistasView(TemplateView):
     def get_context_data(self, **kwargs):
         kwargs['productos'] = Producto.objects.all()
         return kwargs
+
+class DetalladoView(TemplateView):
+    template_name = "productos/detallado.html"
+
+    def get_context_data(self, **kwargs):
+        producto = kwargs.get('slug')
+        kwargs['productos'] = Producto.objects.get(slug=producto)
+        return kwargs

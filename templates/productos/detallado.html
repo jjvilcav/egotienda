@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Producto Detallado {% endblock title %}
+
+{% block content %}
+
+    <h1>{{productos.titulo}}</h1>
+    <img src="../media/{{productos.imagen}}" height="150px" width="150px" alt=""/>
+    <p> Descripcion: S/. {{productos.descripcion}}</p>
+    <p> Categoria: {{productos.categoria}}</p>
+    <p> Subcategoria: {{productos.subcategoria}</p>
+    <p> Usuario: {{productos.usuario}}</p>
+    <p> Precio: S/. {{productos.precio}}</p>
+{% endblock %}
