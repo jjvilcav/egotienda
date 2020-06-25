@@ -8,8 +8,9 @@
         {% for prd in productos %}
             <li>
                 <a href="{% url 'detallado' slug=prd.slug %}">
-                    {{ prd.titulo }}</li>
+                    {{ prd.titulo }}
                 </a>
+            </li>
             <ul>
                 <li>Categoria: {{prd.categoria}} </li>
                 <li>Subcategoria: {{prd.sub_categoria}} </li>
@@ -21,6 +22,9 @@
                 <li>Slug: {{prd.slug}} </li>
             </ul>
         {% endfor %}
+        <form action="{% url 'formulario' %}">
+            <button type="submit">Click</button>
+        </form>
     </ol>
         
 {% endblock %}
