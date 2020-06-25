@@ -22,9 +22,9 @@
                 <li>Slug: {{prd.slug}} </li>
             </ul>
         {% endfor %}
-        <form action="{% url 'formulario' %}">
-            <button type="submit">Click</button>
-        </form>
+        <a href="{% url 'formulario' %}">
+            <button type="submit">Click aquí para añadir categorias</button>
+        </a>
     </ol>
         
 {% endblock %}
