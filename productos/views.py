@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import TemplateView
 from .models import Categoria, Subcategoria, Producto
-from .forms import CategoriaForm
+from .forms import CategoriaForm, SubcategoriaForm
 
 class VistasView(TemplateView):
     template_name = "productos/index.html"
@@ -32,6 +32,21 @@ class NuevaCategoriaView(TemplateView):
     def post(self,request,*args,**kwargs):
         context = self.get_context_data(**kwargs)
         form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        context['form']=form
+        return self.render_to_response(context)
+
+class NuevaSubcategoriaView(TemplateView):
+    template_name = "productos/sub.html"
+
+    def get_context_data(self, **kwargs):
+        kwargs['form'] = SubcategoriaForm
+        return kwargs
+    
+    def post(self,request,*args,**kwargs):
+        context = self.get_context_data(**kwargs)
+        form = SubcategoriaForm(request.POST)
         if form.is_valid():
             form.save()
         context['form']=form
